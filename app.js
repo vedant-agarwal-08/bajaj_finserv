@@ -1,11 +1,15 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-
+const cors = require('cors'); 
 const app = express();
 
 // Middleware to parse JSON bodies
 app.use(bodyParser.json());
-
+app.use(cors({
+    origin: '*', // Allow all origins. You can specify a single domain or a list of domains instead of '*'
+    methods: ['GET', 'POST'], // Allow specific methods
+    
+}));
 // Helper function to find the highest lowercase alphabet
 const highestLowercaseAlphabet = (alphabets) => {
     const lowercaseLetters = alphabets.filter(char => char >= 'a' && char <= 'z');

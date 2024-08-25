@@ -13,7 +13,7 @@ const TextInput = ({ onResponse }) => {
       JSON.parse(input);
 
       // Call the API
-      const response = await axios.post('/bfhl', JSON.parse(input));
+      const response = await axios.post('https://bajajfinserv-production.up.railway.app/bfhl', JSON.parse(input));
       onResponse(response.data);
       setError('');
     } catch (err) {
